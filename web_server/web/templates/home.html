@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+   img {
+      max-width : 150%;
+      height: auto !important;
+   }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/800px-Apple_logo_black.svg.png">
+
+    <title>줄건줘</title>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+
+    <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <script type="text/javascript" src="https://code.highcharts.com/modules/data.js"></script>
+
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+   <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-left:47px;margin-top:25px;" >
+      <a class="navbar-brand" href="http://127.0.0.1:8000/polls/home" ><font size="5.5em">반도체 박막분석 </font></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="http://127.0.0.1:8000/polls/main_realtime_analysis"><font size="4em">실시간 분석</font></a>
+<!--          <a class="nav-item nav-link" href="http://127.0.0.1:8000/polls/detail_analysis"><font size="4em">상세 분석</font></a>-->
+    <!--          <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+
+
+<!--            상세분석-->
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <font size="4em">상세 분석</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="http://127.0.0.1:8000/polls/detail_analysis">제1공정 상세분석</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/polls/two_detail_analysis">제2공정 상세분석</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/polls/synthesis_detail_analysis">종합 통계</a>
+        </div>
+      </li>
+            <a class="nav-item nav-link" href="http://127.0.0.1:8000/polls/test_page"><font size="4em">test_page</font></a>
+        </div>
+      </div>
+    </nav>
+    <p style="margin-left:87px;margin-top:95px;">
+        <caption><font size="6em"> 빅데이터 분석을 통한 반도체 박막두께 측정 </font></caption>
+        <br>
+        <br>
+        <br>
+
+
+
+         <p style="margin-left:95px;">
+<!--        <font size="5em"> 1. 목적 </font>-->
+        <br>
+        <br>
+        <br>
+        최근 고사양 반도체 수요가 많아지면서 반도체를 수직으로 적층하는 3차원 공정이 많이 연구되고 있다.
+        <br>
+        반도체 박막을 수십 ~ 수백 층 쌓아 올리는 공정에서는 박막의 결함으로 인한 두께와 균일도가 저하되는 문제가 있고, 이는 소자 구조의 변형을 야기하며 성능 하락의 주요 요인이 된다.
+        <br>
+        이를 사전에 방지하기 위해서는 박막의 두께를 빠르면서도 정확히 측정하는 것이 중요하다. 박막의 두께를 측정하기 위해 광스펙트럼 분석이 널리 사용되고 있다.
+        <br>
+        하지만 광 스펙트럼을 분석하기 위해서는 관련 지식을 많이 가진 전문가가 필요하며 분석과정에 많은 컴퓨팅자원이 필요하며 데이터 분석이 필요한 부분을 빅데이터 분석을 통해 보완, 해결가능.
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <font size="5em"> 일반적인 측정원리 </font>
+        <br>
+        <br>
+        광간섭두께측정기(Reflectometer)는 입사광과 반사광의 간섭에 의한 파장별 상쇄 및 보강을 측정하여 두께를 측정.
+        <br>
+        원칙적으로 물질의 n, k값을 알고 있을 때 두께 계산이 가능.
+        <br>
+        <br>
+        (n = Refractive index, k = Extinction coefficient)
+        <br>
+        <br>
+        <br>
+        {% load static %}
+        <img style="margin-left:20px;" src="{% static 'img/picture1.png' %}">
+        <img style="margin-top:29px;" src="{% static 'img/picture2.png' %}">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <font size="5em"> 광 스펙트럼 전문가와 컴퓨팅자원의 필요성  </font>
+        <br>
+        <br>
+        측정 지점에 따라 박막의 형상이 다르므로 항상 원하는 입사각을 보장 할 수 없다.
+        <br>
+        이것은 레이어 별로 반사율에 따라 측정되는 layer의 두께에 혼란을 야기하며, 광 스펙트럼 전문인력을 요구한다.
+        <br>
+        <br>
+        <font size="10em">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</font>
+        <font size="4em">[이상적인 박막의 형태]</font>
+        <font size="10em">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</font>
+        <font size="4em">[고통스러운 현실]</font>
+        <br>
+        <img style="margin-left:170px;" src="{% static 'img/semi1.png' %}">
+        <img style="margin-left:200px;" src="{% static 'img/semi2.png' %}">
+        <img style="margin-left:10px;" src="{% static 'img/semi3.png' %}">
+        <br>
+        <br>
+        <font size="10em">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</font>
+        <img style="margin-right:100px;" src="{% static 'img/semi5.png' %}" width = "750" height = "300">
+<!--        <font size="10em">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</font>-->
+<!--        <font style="margin-right:150px;margin-top:0px;" size="4em">[그렇게 탄생한 <s>레고</s> 박막]</font>-->
+<!--        <font size="10em">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</font>-->
+<!--        <img style="margin-right:100px;" src="{% static 'img/arrow1.png' %}" width = "300" height = "300">-->
+<!--        <br>-->
+<!--        <font size="10em">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</font>-->
+<!--        <img style="margin-right:150px;" src="{% static 'img/semi4.png' %}">-->
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <font size="5em"> 빅데이터를 활용한 박막두께 예측 </font>
+        <br>
+        <br>
+        복잡한 수학계산 이전에 검사함으로써 검사속도의 향상.
+        <br>
+        불규칙한 표면의 형상에 상관없이 데이터가 쌓여가면서 예측값의 정확도가 현저하게 올라감.
+        <br>
+        전문가의 Insight를 통해 더욱 정밀한 예측모델 설계 가능.
+        <br>
+        습도센서, 온도센서등의 IOT센서와의 결합으로 더 높은 검사 완성도를 얻을 수 있음.
+        <br>
+        <br>
+
+
+        </p>
+
+    </p>
+
+
+
+    <div class="container-fluid text-center" style='margin-top:200px;margin-bottom:1px;line-height:0.3;'>
+        <p>Team name : Plan_B&nbsp&nbsp&nbsp Email address : sbskh11@gmail.com   </p>
+    </div>
+    <div class="container-fluid text-center" style='line-height:0.1;'>
+        <p>Member : SEO BONGSEOK & CHOI SEUNGHEE & LEE YOON </p>
+    </div>
+    <div class="container-fluid text-center" style='margin-top:1px;margin-bottom:1px;'>
+      <p>Since 2020-06-05</p>
+    </div>
+
+</body>
+</html>

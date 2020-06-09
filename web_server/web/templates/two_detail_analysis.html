@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/800px-Apple_logo_black.svg.png">
+
+    <title>줄건줘</title>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+
+    <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <script type="text/javascript" src="https://code.highcharts.com/modules/data.js"></script>
+
+</head>
+
+<body>
+
+
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ --> <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+   <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-left:47px;margin-top:25px;" >
+      <a class="navbar-brand" href="http://127.0.0.1:8000/polls/home" ><font size="5.5em">반도체 박막분석 </font></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="http://127.0.0.1:8000/polls/main_realtime_analysis"><font size="4em">실시간 분석</font></a>
+<!--          <a class="nav-item nav-link" href="http://127.0.0.1:8000/polls/detail_analysis"><font size="4em">상세 분석</font></a>-->
+    <!--          <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+
+
+<!--            상세분석-->
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <font size="4em">상세 분석</font>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="http://127.0.0.1:8000/polls/detail_analysis">제1공정 상세분석</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/polls/two_detail_analysis">제2공정 상세분석</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/polls/synthesis_detail_analysis">종합 통계</a>
+        </div>
+      </li>
+            <a class="nav-item nav-link" href="http://127.0.0.1:8000/polls/test_page"><font size="4em">test_page</font></a>
+        </div>
+      </div>
+    </nav>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+<p style="margin-left:87px;margin-top:95px;">
+<caption ><font size="6em"> 제 2 공정 상세분석 </font><font size="3em">(160_200_140_300_layer)</font></caption>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<!--# 1번재단-->
+<div style="margin-left:87px;" ><font size="4em">[ good : 양품, bad : 불량품 ]</font></div>
+<br>
+<figure class="highcharts-figure" style="width:625px;height:525px;margin-left: 100;float: left;">
+  <div id="container1"></div>
+</figure>
+
+<figure class="highcharts-figure" style="width:625px;height:525px;float: left;">
+  <div id="container2"></div>
+</figure>
+
+<figure class="highcharts-figure" style="width:625px;height:525px;float: left;">
+  <div id="container3"></div>
+</figure>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!--# 2번째단-->
+<figure class="highcharts-figure">
+    <div id="container4" style="width:1000px;height:550px;margin-left:30px;float: left;"></div>
+</figure>
+<div class="form-group" style="width:800px;margin-top:20px;margin-left:30px;height:190px;float: left;">
+    <label for="exampleFormControlTextarea1"><font size="4em">검사 데이터 수량</font></label>
+    <textarea class="form-control" id="exampleFormControlTextarea" rows="5" ></textarea>
+</div>
+<div class="form-group" style="width:800px;margin-left:30px;float: left;">
+    <label for="exampleFormControlTextarea1"><font size="4em">Insfaction Log</font></label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="11" ></textarea>
+</div>
+<br>
+<br>
+
+<!--# 3번째단-->
+<div class="form-group" style="width:1800px;height:230px;margin-top:120px;margin-left:50px;float: left;">
+    <label for="exampleFormControlTextarea1"><font size="4em">반사율 데이터</font></label>
+    <textarea class="form-control" id="exampleFormControlTextarea2" rows="12" style="overflow-x: scroll;"></textarea>
+</div>
+
+
+
+
+
+
+    <div class="container-fluid text-center" style='margin-top:1400px;margin-bottom:1px;line-height:0.3;'>
+        <p>Team name : Plan_B&nbsp&nbsp&nbsp Email address : sbskh11@gmail.com   </p>
+    </div>
+    <div class="container-fluid text-center" style='line-height:0.1;'>
+        <p>Member : SEO BONGSEOK & CHOI SEUNGHEE & LEE YOON </p>
+    </div>
+    <div class="container-fluid text-center" style='margin-top:1px;margin-bottom:1px;'>
+      <p>Since 2020-06-05</p>
+    </div>
+
+
+
+
+<script type="text/javascript">
+
+    function createChart1() {
+    $.get('/polls/two_detail_graph_one', function(data1) {
+
+    Highcharts.chart('container1', {
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+      },
+      title: {
+        text: '제 2 공정 불량률'
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      accessibility: {
+        point: {
+          valueSuffix: '%'
+        }
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+          }
+        }
+      },
+      series: [{
+        name: 'Rate',
+        colorByPoint: true,
+        data:  data1
+
+      }]
+    });
+    });
+    }
+
+    function createChart2() {
+    $.get('/polls/two_detail_graph_DR_onevsT', function(data1) {
+
+    Highcharts.chart('container2', {
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+      },
+      title: {
+        text: '전체공정 불량품 대비 제 2 공정 불량품 비율'
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      accessibility: {
+        point: {
+          valueSuffix: '%'
+        }
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+          }
+        }
+      },
+      series: [{
+        name: 'Rate',
+        colorByPoint: true,
+        data:  data1
+
+      }]
+    });
+    });
+    }
+
+    function createChart3() {
+    $.get('/polls/detail_graph_DR_progresses', function(data1) {
+    Highcharts.chart('container3', {
+  chart: {
+    type: 'column'
+  },
+  title: {
+    text: '공정별 불량비중 비교'
+  },
+  xAxis: {
+    categories: ['전체 공정', '제 1 공정', '제 2 공정']
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Total defect rate'
+    },
+    stackLabels: {
+      enabled: true,
+      style: {
+        fontWeight: 'bold',
+        color: ( // theme
+          Highcharts.defaultOptions.title.style &&
+          Highcharts.defaultOptions.title.style.color
+        ) || 'gray'
+      }
+    }
+  },
+  legend: {
+    align: 'right',
+    x: -30,
+    verticalAlign: 'top',
+    y: 25,
+    floating: true,
+    backgroundColor:
+      Highcharts.defaultOptions.legend.backgroundColor || 'white',
+    borderColor: '#CCC',
+    borderWidth: 1,
+    shadow: false
+  },
+  tooltip: {
+    headerFormat: '<b>{point.x}</b><br/>',
+    pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+  },
+  plotOptions: {
+    column: {
+      stacking: 'normal',
+      dataLabels: {
+        enabled: true
+      }
+    }
+  },
+  series: data1
+});
+});
+    }
+
+
+     function createChart4() {
+    $.get('/polls/two_to_graph', function(jsondata) {
+
+            Highcharts.chart('container4', {
+
+               chart: {
+
+                    type: 'spline'
+
+                },
+
+                title: {
+                    text: '제 2 공정 실시간 두께'
+                },
+                accessibility: {
+                    announceNewData: {
+                        enabled: true,
+                        minAnnounceInterval: 15000,
+                        announcementFormatter: function (allSeries, newSeries, newPoint) {
+                            if (newPoint) {
+                                return 'New point added. Value: ' + newPoint.y;
+                            }
+                            return false;
+                        }
+                    }
+                },
+
+                subtitle: {
+                    text: '160_200_140_300_layer'
+                },
+
+                yAxis: [{ // left y axis
+                    title: {
+                        text: null
+                    },
+                    labels: {
+                        align: 'left',
+                        x: 3,
+                        y: 16,
+                        format: '{value:.,0f}'
+                    },
+                    showFirstLabel: false
+                }, { // right y axis
+                    linkedTo: 0,
+                    gridLineWidth: 0,
+                    opposite: true,
+                    title: {
+                        text: null
+                    },
+
+                    labels: {
+                      align: 'right',
+                      x: -3,
+                      y: 16,
+                      format: '{value:.,0f}'
+                    },
+                    showFirstLabel: false
+                }],
+
+                legend: {
+                    align: 'left',
+                    verticalAlign: 'top',
+                    borderWidth: 0
+                },
+
+                tooltip: {
+                    shared: true,
+                    crosshairs: true
+                },
+
+              plotOptions: {
+                series: {
+                  cursor: 'pointer',
+                  point: {
+                    events: {
+                      click: function (e) {
+                        hs.htmlExpand(null, {
+                          pageOrigin: {
+                            x: e.pageX || e.clientX,
+                            y: e.pageY || e.clientY
+                          },
+                          headingText: this.series.name,
+                          maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
+                            this.y + ' sessions',
+                          width: 100
+                        });
+                      }
+                    }
+                  },
+                  marker: {
+                    lineWidth: 1
+                  }
+                }
+              },
+
+                data: jsondata,
+                enablePolling: true,
+                dataRefreshRate: 2
+
+
+            });
+
+        });
+        }
+
+     function intotext() {
+     $.get('/polls/two_goto_get_quantity', function(data) {
+     $('#exampleFormControlTextarea').val(data);
+     });
+     }
+
+     function intotext1() {
+     $.get('/polls/goto_log', function(data) {
+     $('#exampleFormControlTextarea1').val(data);
+     });
+     }
+
+     function intotext2() {
+     $.get('/polls/two_goto_reflec', function(data) {
+     $('#exampleFormControlTextarea2').val(data);
+     });
+     }
+
+    createChart1();
+    createChart2();
+    createChart3();
+    createChart4();
+    intotext();
+    intotext1();
+    intotext2();
+
+
+
+</script>
+</body>
+
+</html>

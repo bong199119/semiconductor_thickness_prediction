@@ -1,0 +1,77 @@
+처음 프로그램 시작시(make_DB부터일시)
+
+1. pytorch 설치
+cpu버전으로 설치해야한다면(gpu없으면 or 쿠다설치가 불가능하면) 아래 실행 
+# Conda
+conda install pytorch torchvision cpuonly -c pytorch
+# Pip
+pip install torch==1.5.0+cpu torchvision==0.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+
+2. django 인스톨 
+pip install django
+
+
+3. 두가지를 실행한다. python-db연결
+pip install pymysql
+pip install sqlalchemy
+
+
+4. 절대경로로 작성되어있는 경로들 바꿔주기  + db만들어주기
+
+data_sampling.py의 semiconductor_train.csv경로가 맞는지 보고
+데이터베이스 test_data, output_data_1 만들어주기 
+make_DB.py실행 ㄱㄱ (db만드는 함수들의 db정보를 잘 바꾸어주어야함)
+
+predictor.py에 predict함수의 weight경로 바꿔주기
+view.py에 경로 다 바꿔주기
+
+
+4-1. output_data_1(데이터베이스)에 테이블 만들어주기 
+CREATE TABLE layer_180_20_110_170_output(
+date_now TEXT,
+layer_1 DOUBLE,
+layer_2 DOUBLE,
+layer_3 DOUBLE,
+layer_4 DOUBLE,
+inferior TEXT
+);
+CREATE TABLE layer_290_170_300_240_output(
+date_now TEXT,
+layer_1 DOUBLE,output_data_1
+layer_2 DOUBLE,
+layer_3 DOUBLE,
+layer_4 DOUBLE,
+inferior TEXT
+);
+CREATE TABLE layer_10_160_40_180_output(
+date_now TEXT,
+layer_1 DOUBLE,
+layer_2 DOUBLE,
+layer_3 DOUBLE,
+layer_4 DOUBLE,
+inferior TEXT
+);
+CREATE TABLE layer_200_90_230_220_output(
+date_now TEXT,
+layer_1 DOUBLE,
+layer_2 DOUBLE,
+layer_3 DOUBLE,
+layer_4 DOUBLE,
+inferior TEXT
+);
+CREATE TABLE layer_160_200_140_300_output(
+date_now TEXT,
+layer_1 DOUBLE,
+layer_2 DOUBLE,
+layer_3 DOUBLE,
+layer_4 DOUBLE,
+inferior TEXT
+);
+
+
+
+5. 부트스트랩 설치 
+pip install django-bootstrap4
+
+
+

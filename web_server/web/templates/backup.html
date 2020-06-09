@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>줄건줘</title>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+
+    <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <script type="text/javascript" src="https://code.highcharts.com/modules/data.js"></script>
+
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="http://127.0.0.1:8000/polls/home">반도체 박막분석</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="http://127.0.0.1:8000/polls/realtime_analysis">실시간 분석</a>
+          <a class="nav-item nav-link" href="http://127.0.0.1:8000/polls/detail_analysis">상세 분석</a>
+    <!--          <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+          <a class="nav-item nav-link" href="http://127.0.0.1:8000/polls/test_page">test_page</a>
+        </div>
+      </div>
+    </nav>
+</body>
+</html>
+
+
+<!--    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>-->
+<!--    <script src="https://code.highcharts.com/highcharts.js"></script>-->
+<!--    <script src="https://code.highcharts.com/modules/data.js"></script>-->
+<!--    <script src="https://code.highcharts.com/modules/series-label.js"></script>-->
+<!--    <script src="https://code.highcharts.com/modules/exporting.js"></script>-->
+<!--    <script src="https://code.highcharts.com/modules/export-data.js"></script>-->
+<!--    <script src="https://code.highcharts.com/modules/accessibility.js"></script>-->
+
+
+
+<!--            <div class="container">-->
+
+<!--                <div class="container-fluid full-width">-->
+
+<!--                    <div  align="right" class="row-fluid">-->
+
+<!--                    <button type= "button" id = "measure_start" class="btn btn-outline-dark">측정 시작</button>-->
+
+<!--                    <a href="/polls/to_graph" class="btn btn-outline-dark">측정 시작 2</a>-->
+
+<!--                    </div>-->
+
+<!--                </div>-->
+
+<!--            </div>-->
+
+<!--                                        &lt;!&ndash;선택한 후보의 id값 전달&ndash;&gt;-->
+<!--    &lt;!&ndash; Additional files for the Highslide popup effect &ndash;&gt;-->
+<!--    <script src="https://www.highcharts.com/media/com_demo/js/highslide-full.min.js"></script>-->
+<!--    <script src="https://www.highcharts.com/media/com_demo/js/highslide.config.js" charset="utf-8"></script>-->
+<!--    <link rel="stylesheet" type="text/css" href="https://www.highcharts.com/media/com_demo/css/highslide.css" />-->
+
+<!--    <figure class="highcharts-figure">-->
+<!--      <div id="container"></div>-->
+<!--      <p class="highcharts-description">-->
+<!--      </p>-->
+<!--    </figure>-->
+<!--    <script type="text/javascript">-->
+
+<!--    Highcharts.chart('container', {-->
+
+<!--      chart: {-->
+<!--        scrollablePlotArea: {-->
+<!--          minWidth: 100-->
+
+<!--        }-->
+<!--      },-->
+
+<!--      data: {-->
+<!--        csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',-->
+<!--        beforeParse: function (csv) {-->
+<!--          return csv.replace(/\n\n/g, '\n');-->
+
+<!--        }-->
+<!--      },-->
+
+<!--      title: {-->
+<!--        text: '제 1 공정 실시간 두께'-->
+<!--      },-->
+
+<!--      subtitle: {-->
+<!--        text: '180_20_110_170_layer'-->
+<!--      },-->
+
+<!--      xAxis: {-->
+<!--        tickInterval: 7 * 24 * 3600 * 1000, // one week-->
+<!--        tickWidth: 0,-->
+<!--        gridLineWidth: 1,-->
+<!--        labels: {-->
+<!--          align: 'left',-->
+<!--          x: 3,-->
+<!--          y: -3-->
+<!--        }-->
+<!--      },-->
+
+<!--      yAxis: [{ // left y axis-->
+<!--        title: {-->
+<!--          text: null-->
+<!--        },-->
+<!--        labels: {-->
+<!--          align: 'left',-->
+<!--          x: 3,-->
+<!--          y: 16,-->
+<!--          format: '{value:.,0f}'-->
+<!--        },-->
+<!--        showFirstLabel: false-->
+<!--      }, { // right y axis-->
+<!--        linkedTo: 0,-->
+<!--        gridLineWidth: 0,-->
+<!--        opposite: true,-->
+<!--        title: {-->
+<!--          text: null-->
+<!--        },-->
+<!--        labels: {-->
+<!--          align: 'right',-->
+<!--          x: -3,-->
+<!--          y: 16,-->
+<!--          format: '{value:.,0f}'-->
+<!--        },-->
+<!--        showFirstLabel: false-->
+<!--      }],-->
+
+<!--      legend: {-->
+<!--        align: 'left',-->
+<!--        verticalAlign: 'top',-->
+<!--        borderWidth: 0-->
+<!--      },-->
+
+<!--      tooltip: {-->
+<!--        shared: true,-->
+<!--        crosshairs: true-->
+<!--      },-->
+
+<!--      plotOptions: {-->
+<!--        series: {-->
+<!--          cursor: 'pointer',-->
+<!--          point: {-->
+<!--            events: {-->
+<!--              click: function (e) {-->
+<!--                hs.htmlExpand(null, {-->
+<!--                  pageOrigin: {-->
+<!--                    x: e.pageX || e.clientX,-->
+<!--                    y: e.pageY || e.clientY-->
+<!--                  },-->
+<!--                  headingText: this.series.name,-->
+<!--                  maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +-->
+<!--                    this.y + ' sessions',-->
+<!--                  width: 100-->
+<!--                });-->
+<!--              }-->
+<!--            }-->
+<!--          },-->
+<!--          marker: {-->
+<!--            lineWidth: 1-->
+<!--          }-->
+<!--        }-->
+<!--      },-->
+
+<!--      series: [{-->
+<!--        name: 'All sessions',-->
+<!--        lineWidth: 4,-->
+<!--        marker: {-->
+<!--          radius: 4-->
+<!--        }-->
+<!--      }, {-->
+<!--        name: 'New users'-->
+<!--      }]-->
+<!--    });-->
+<!--    </script>-->
+
+
+
+<!--</body>-->
+<!--</html>-->
+
+<!--<script>-->
+<!--  $(function(){-->
+<!--	  $("#measure_start").click(function(){-->
+<!--		  f.action="predictor.py";-->
+<!--		  f.submit();-->
+<!--	  });-->
+<!--  });-->
+
+<!--</script>-->
+
+
+
+
