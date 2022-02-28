@@ -12,3 +12,14 @@
 
 
 ![22](https://user-images.githubusercontent.com/57978796/155951485-43db231f-dd3d-43ce-859e-6acb0237e069.png)
+
+
+The repository includes:
+
+Source code of Mask R-CNN built on FPN and ResNet101.
+Training code for MS COCO
+Pre-trained weights for MS COCO
+Jupyter notebooks to visualize the detection pipeline at every step
+ParallelModel class for multi-GPU training
+Evaluation on MS COCO metrics (AP)
+Example of training on your own dataset
