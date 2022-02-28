@@ -6,7 +6,6 @@
 
 
 # WGAN: Wasserstein GAN
-semiconductor_thickness_prediction_project
 <p align="center">
   <b><a href="https://github.com/choib/">BO CHOI</a></b>
 </p>
