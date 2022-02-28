@@ -5,6 +5,7 @@
 ![License CC BY-NC](https://img.shields.io/badge/license-MIT-108a00.svg?style=plastic)
 
 
+![11](https://user-images.githubusercontent.com/57978796/155951227-7de2d251-91fe-460a-a882-8d00b5405d52.png)
 # WGAN: Wasserstein GAN
 <p align="center">
   <b><a href="https://github.com/choib/">BO CHOI</a></b>
