@@ -4,12 +4,6 @@
 ![cuDNN 7.3.1](https://img.shields.io/badge/cuda-11.2-2545e6.svg?style=plastic)
 ![License CC BY-NC](https://img.shields.io/badge/license-MIT-108a00.svg?style=plastic)
 
-
-<p align="center">
-  <b><a href="https://github.com/choib/">BO CHOI</a></b>
-</p>
-
-
 # WGAN: Wasserstein GAN
 Assuming that the loss function is a slowly changing value, it is a method to adjust the amount of updating the weight of the neural network using the clipping technique. It is a method in which gradient exploding and mode collapse, known as problems of vanilla GAN, occur less.
 
