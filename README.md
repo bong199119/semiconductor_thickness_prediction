@@ -23,8 +23,21 @@ The repository includes:
 * Pre-trained weights for stylegan dataset
 * Example of training on stylegan dataset(cityscape)
 
+# Testing Environment
+CPU = AMD® Ryzen threadripper 3960x 24-core processor × 48
+GPU = Nvidia Geforce 3090 RTX
+RAM = 128GB
+SSD = 512GB
+OS = Ubuntu 18.04
 
-# Getting Started
 # Step by Step Detection
-# Useage
+
+
+# Training
+```bash
 python waegan_pl.py --date "" --dataset "cityscape_data" --batch_size 15 --precision 16 --train_max 500 --style_ratio 0.1
+```
+# testing
+python waegan_pl.py --date ""  --dataset "cityscape_data" --validate   --DDP --epoch 499
+
+
