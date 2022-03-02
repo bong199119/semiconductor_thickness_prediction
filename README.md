@@ -39,4 +39,4 @@ python waegan_pl.py --date "" --dataset "cityscape_data" --batch_size 15 --preci
 python waegan_pl.py --date ""  --dataset "cityscape_data" --validate   --DDP --epoch 499
 ```
 # Resutls
-
+# License
