@@ -29,13 +29,21 @@ The docker image is present in the docker_file folder. The required code, images
 Inside code folder, the image data is preset inside the data folder. The images are already preprocessed to make the testing easier. The code for WGAN and the saved model is present in the folder WGAN. In order to test the trained model follow the following steps. 
 
 * Step1: load docker image
+```bash
 docker load -i surgicaltool_wgan.tar
+```
 * Step2: start a container with the code, images and saved models
+```bash
 docker run --gpus 1 -v /home/mteg-vas/nisan/workspace/surgitool/code:/workspace --rm --shm-size=16g -ti surgicaltool_wgan
+```
 * Step3: change directory to the loaded code
+```bash
 cd WGAN/
+```
 * Step4: Run script for test
+```bash
 python waegan_pl.py --date ""  --dataset  "Graspers (curved) (KARL STORZ) (GRSL-CIKS)" --validate   --DDP --epoch 2
+```
 
 
 
