@@ -16,14 +16,13 @@ Assuming that the loss function is a slowly changing value, it is a method to ad
 
 
 The repository includes:
-* Source code of Mask R-CNN built on FPN and ResNet101.
-* Training code for MS COCO
-* Pre-trained weights for MS COCO
-* Jupyter notebooks to visualize the detection pipeline at every step
-* ParallelModel class for multi-GPU training
-* Evaluation on MS COCO metrics (AP)
-* Example of training on your own dataset
+* Source code of WGAN built on ResNet.
+* Training code for stylegan dataset
+* Pre-trained weights for stylegan dataset
+* Example of training on stylegan dataset(cityscape)
 
 
 # Getting Started
 # Step by Step Detection
+# Useage
+python waegan_pl.py --date "" --dataset "cityscape_data" --batch_size 15 --precision 16 --train_max 500 --style_ratio 0.1
