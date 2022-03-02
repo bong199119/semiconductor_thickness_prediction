@@ -38,6 +38,7 @@ OS = Ubuntu 18.04
 python waegan_pl.py --date "" --dataset "cityscape_data" --batch_size 15 --precision 16 --train_max 500 --style_ratio 0.1
 ```
 # testing
+```bash
 python waegan_pl.py --date ""  --dataset "cityscape_data" --validate   --DDP --epoch 499
-
+```
 
