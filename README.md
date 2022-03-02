@@ -24,14 +24,11 @@ The repository includes:
 * Example of training on stylegan dataset(cityscape)
 
 # Testing Environment
-CPU = AMD® Ryzen threadripper 3960x 24-core processor × 48
-GPU = Nvidia Geforce 3090 RTX
-RAM = 128GB
-SSD = 512GB
-OS = Ubuntu 18.04
-
-# Step by Step Detection
-
+* CPU = AMD® Ryzen threadripper 3960x 24-core processor × 48
+* GPU = Nvidia Geforce 3090 RTX
+* RAM = 128GB
+* SSD = 512GB
+* OS = Ubuntu 18.04
 
 # Training
 ```bash
