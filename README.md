@@ -44,17 +44,18 @@ docker ps
 ```bash
 docker attach [CONTAINER ID]
 ```
-* Step5: Run script for test
+* Step5: Run script for train
 ```bash
-python waegan_pl.py --date ""  --dataset  "Graspers (curved) (KARL STORZ) (GRSL-CIKS)" --validate   --DDP --epoch 2
+ python waegan_pl.py --date "" --dataset "cityscape_data" --batch_size 15 --precision 16
 ```
 
 # Training
 ```bash
-python waegan_pl.py --date "" --dataset "cityscape_data" --batch_size 15 --precision 16 --train_max 500
+python waegan_pl.py --date "" --dataset "cityscape_data" --batch_size 15 --precision 16
 ```
 # Testing
 ```bash
+# epoch = [Learned weights to use]-1
 python waegan_pl.py --date ""  --dataset "cityscape_data" --validate   --DDP --epoch 499
 ```
 # Resutls
