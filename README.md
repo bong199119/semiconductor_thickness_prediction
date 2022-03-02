@@ -6,6 +6,7 @@
 
 
 # WGAN: Wasserstein GAN
+Assuming that the loss function is a slowly changing value, it is a method to adjust the amount of updating the weight of the neural network using the clipping technique. It is a method in which gradient exploding and mode collapse, known as problems of vanilla GAN, occur less.
 <p align="center">
   <b><a href="https://github.com/choib/">BO CHOI</a></b>
 </p>
