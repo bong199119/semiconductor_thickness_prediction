@@ -30,7 +30,7 @@ Inside code folder, the image data is preset inside the data folder. The images 
 
 * Step1: load docker image
 ```bash
-docker load -i surgicaltool_wgan.tar
+docker build -t wgan -f wgan .
 ```
 * Step2: start a container with the code, images and saved models
 ```bash
